@@ -1,0 +1,160 @@
+<!DOCTYPE html> <!-- 声明文档类型为HTML5 -->
+<html lang="zh-CN"> <!-- 定义文档语言为中文 -->
+<head>
+    <meta charset="UTF-8"> <!-- 设置字符编码为UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 响应式设计，适配移动设备 -->
+    <title>他的工具箱</title> <!-- 页面标题 -->
+    <style>
+        /* 定义CSS变量，方便统一管理和修改主题颜色 */
+        :root {
+            --primary: #272727; /* 主色调 */
+            --secondary: #f9f9f9; /* 辅助色调*/
+            --text: #2c3e50; /* 文字颜色：深蓝色 */
+        }
+
+        /* 页面主体样式 */
+        body {
+            font-family: 'Segoe UI', system-ui; /* 设置字体 */
+            background: linear-gradient(135deg, #add8e6 0%, #c3e4ed 100%); /* 背景渐变 */
+            min-height: 100vh; /* 最小高度为视口高度 */
+            margin: 0; /* 移除默认外边距 */
+            padding: 20px; /* 添加内边距 */
+            color: var(--text); /* 使用定义的文字颜色 */
+        }
+
+        /* 头部样式 */
+header {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%); /* 头部背景渐变 */
+    padding: 1.5rem; /* 内边距 */
+    font-size: 2rem; /* 字体大小 */
+    color: white; /* 文字颜色 */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* 文字阴影 */
+    letter-spacing: 2px; /* 字母间距 */
+    box-shadow: 0 4px 15px rgba(156, 175, 80, 0.3); /* 盒子阴影 */
+    position: relative; /* 相对定位 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    display: flex; /* 使用弹性布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+        }
+
+        /* 头部背景纹理 */
+        header::after {
+            content: ""; /* 伪元素内容为空 */
+            position: absolute; /* 绝对定位 */
+            top: -50%; /* 上移50% */
+            left: -50%; /* 左移50% */
+            width: 200%; /* 宽度为200% */
+            height: 200%; /* 高度为200% */
+            background: repeating-linear-gradient( /* 重复线性渐变 */
+                45deg, /* 45度角 */
+                transparent, /* 透明 */
+                transparent 10px, /* 透明区域 */
+                rgba(255,255,255,0.1) 10px, /* 白色半透明 */
+                rgba(255,255,255,0.1) 20px /* 白色半透明 */
+            );
+            opacity: 0.3; /* 透明度 */
+        }
+
+        /* 导航容器样式 */
+        .nav-container {
+            display: grid; /* 使用网格布局 */
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* 自适应列宽 */
+            gap: 15px; /* 网格间距 */
+            max-width: 1200px; /* 最大宽度 */
+            margin: 2rem auto; /* 外边距居中 */
+            padding: 0 20px; /* 内边距 */
+        }
+
+        /* 导航按钮样式 */
+        .nav-button {
+            display: flex; /* 使用弹性布局 */
+            align-items: center; /* 垂直居中 */
+            justify-content: center; /* 水平居中 */
+            padding: 14px 28px; /* 内边距 */
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); /* 背景渐变 */
+            color: white; /* 文字颜色 */
+            border-radius: 12px; /* 圆角 */
+            text-decoration: none; /* 移除下划线 */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* 过渡动画 */
+            box-shadow: 0 4px 15px rgba(156, 175, 80, 0.3); /* 盒子阴影 */
+            position: relative; /* 相对定位 */
+            overflow: hidden; /* 隐藏溢出内容 */
+        }
+
+        /* 导航按钮悬停效果 */
+        .nav-button:hover {
+            transform: translateY(-3px); /* 上移3px */
+            box-shadow: 0 6px 20px rgba(156, 175, 80, 0.4); /* 盒子阴影增强 */
+        }
+
+        /* 导航按钮点击效果 */
+        .nav-button:active {
+            transform: scale(0.98); /* 缩小 */
+            filter: brightness(0.9); /* 降低亮度 */
+        }
+
+        /* 未启用的导航按钮样式 */
+        .nav-button[href="#"] {
+            opacity: 0.7; /* 降低透明度 */
+            cursor: not-allowed; /* 禁用鼠标指针 */
+        }
+
+        /* 未启用的导航按钮提示文字 */
+        .nav-button[href="#"]::after {
+            content: "（开发中）"; /* 添加提示文字 */
+            font-size: 0.8em; /* 字体大小 */
+            margin-left: 8px; /* 左边距 */
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .nav-container {
+                grid-template-columns: repeat(2, 1fr); /* 双列布局 */
+                gap: 10px; /* 网格间距 */
+                padding: 0 10px; /* 内边距 */
+            }
+            
+            .nav-button {
+                padding: 12px 20px; /* 内边距 */
+                font-size: 0.9em; /* 字体大小 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+༒࿈导༙྇航༙྇࿈༒<!-- 头部标题 -->
+</header>
+
+<div class="nav-container">
+    <!-- 导航按钮 -->
+    <a href="https://nbklas.xyz/" class="nav-button" target="_blank">脱硫</a>
+    <a href="https://tv.nbklas.xyz/" class="nav-button" target="_blank">电影</a>
+    <a href="https://blog.nbklas.xyz/" class="nav-button" target="_blank">博客</a>
+    <a href="http://ih.nbklas.xyz/" class="nav-button" target="_blank">图床</a>
+    <a href="http://dw.nbklas.xyz" class="nav-button" target="_blank">图纸</a>
+    <a href="https://www.deepseek.com/" class="nav-button" target="_blank">DeepSeek</a>
+    <a href="https://x.ai/" class="nav-button" target="_blank">X AI</a>
+    <a href="https://codegeex.cn/" class="nav-button" target="_blank">CodeGeex</a>
+    <a href="https://github.com/yangzivip" class="nav-button" target="_blank">GitHub</a>
+    <a href="https://tool.browser.qq.com/" class="nav-button" target="_blank">工具1</a>
+    <a href="https://tool.lu/" class="nav-button" target="_blank">工具2</a>
+    <a href="https://www.jyshare.com/" class="nav-button" target="_blank">工具3</a>
+    <a href="https://qrit.chesko.dev/" class="nav-button" target="_blank">二维码</a>
+    <a href="http://ip111.cn/" class="nav-button" target="_blank">ip分流</a>
+    <a href="https://sd.indiavip.eu.org/iosymbiandroid" class="nav-button" target="_blank">短链接</a>
+    <a href="#" class="nav-button" target="_blank">苍井空</a>
+    <a href="#" class="nav-button" target="_blank">铃木杏</a>
+    <a href="#" class="nav-button" target="_blank">武藤兰</a>
+    <a href="#" class="nav-button" target="_blank">石原里美</a>
+    <a href="#" class="nav-button" target="_blank">深田恭子</a>
+    <a href="#" class="nav-button" target="_blank">安室奈美惠</a>
+    <a href="#" class="nav-button" target="_blank">小泽玛利亚</a>
+</div>
+<footer style="text-align: center; margin-top: 2rem; font-size: 1.2rem; color: #076db1;">
+༒࿈杨༙྇子༙྇࿈༒
+</footer>
+</body>
